@@ -1,0 +1,120 @@
+:root {
+    --esen-blue: #4da6e1;
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #e1f0fa 50%, #b3d9f2 100%);
+    --text-color: #1a1a1a;
+    --shadow-ui: rgba(77, 166, 225, 0.4);
+    --input-bg: rgba(255, 255, 255, 0.9);
+}
+
+body.dark {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --text-color: #ffffff;
+    --shadow-ui: rgba(0, 0, 0, 0.7);
+    --input-bg: rgba(30, 41, 59, 0.8);
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;
+}
+
+body {
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Menu Kebab */
+.menu-container { position: fixed; top: 20px; left: 20px; z-index: 1000; }
+.menu-dots {
+    background: white; border: 2px solid var(--esen-blue); color: var(--esen-blue);
+    width: 45px; height: 45px; border-radius: 12px; font-size: 24px; cursor: pointer;
+    box-shadow: 0 4px 15px var(--shadow-ui); display: flex; align-items: center; justify-content: center;
+}
+.dropdown-menu {
+    position: absolute; top: 55px; left: 0; background: white; padding: 15px;
+    border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: none; width: 200px;
+}
+.dropdown-menu.active { display: block; animation: slideIn 0.3s ease; }
+.setting-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; color: #333; font-size: 14px; }
+
+/* Navigation */
+.main-header { position: absolute; top: 30px; right: 40px; z-index: 900; }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 1.1rem; }
+.nav-links a:hover { color: var(--esen-blue); transform: scale(1.1); }
+
+/* Contenu */
+.content-center {
+    height: 100vh; display: flex; justify-content: center; align-items: center;
+    padding: 20px; text-align: center;
+}
+
+.hero-card {
+    width: 100%; max-width: 450px;
+    animation: fadeIn 0.8s ease;
+}
+
+.title { 
+    font-size: clamp(2.5rem, 6vw, 4rem); 
+    font-weight: 800; 
+    margin-bottom: 40px; /* Plus d'espace car plus de logo */
+    text-shadow: 3px 5px 12px var(--shadow-ui);
+}
+
+.auth-form { display: flex; flex-direction: column; gap: 18px; }
+
+.auth-form input {
+    padding: 18px 25px;
+    border-radius: 50px;
+    border: 2px solid var(--esen-blue);
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.auth-form input:focus {
+    box-shadow: 0 0 15px var(--shadow-ui);
+    transform: scale(1.02);
+}
+
+.btn-start {
+    background: linear-gradient(135deg, var(--esen-blue), #2980b9);
+    color: white; border: none;
+    padding: 18px; font-size: 1.4rem; font-weight: 700;
+    border-radius: 50px; cursor: pointer;
+    box-shadow: 0 10px 20px var(--shadow-ui);
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+.btn-start:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 15px 30px var(--shadow-ui);
+}
+
+.link-auth {
+    color: var(--esen-blue);
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Switches */
+.switch { position: relative; width: 34px; height: 18px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; border-radius: 34px; }
+.slider:before { content: ""; position: absolute; height: 12px; width: 12px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: 0.4s; }
+input:checked + .slider { background-color: var(--esen-blue); }
+input:checked + .slider:before { transform: translateX(16px); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideIn { from { transform: translateY(-10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+@media (max-width: 850px) {
+    .main-header { top: 80px; right: 0; left: 0; text-align: center; }
+    .nav-links { justify-content: center; gap: 15px; }
+}

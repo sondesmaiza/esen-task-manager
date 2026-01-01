@@ -1,0 +1,79 @@
+:root {
+    --esen-blue: #4da6e1;
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #e1f0fa 50%, #b3d9f2 100%);
+    --text-color: #1a1a1a;
+    --shadow-ui: rgba(77, 166, 225, 0.4);
+    --input-bg: rgba(255, 255, 255, 0.9);
+}
+
+body.dark {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --text-color: #ffffff;
+    --shadow-ui: rgba(0, 0, 0, 0.7);
+    --input-bg: rgba(30, 41, 59, 0.8);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; transition: 0.3s ease; }
+
+body { background: var(--bg-gradient); background-attachment: fixed; color: var(--text-color); min-height: 100vh; }
+
+/* Menu Kebab Original */
+.menu-container { position: fixed; top: 20px; left: 20px; z-index: 1000; }
+.menu-dots { background: white; border: 2px solid var(--esen-blue); color: var(--esen-blue); width: 45px; height: 45px; border-radius: 12px; font-size: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px var(--shadow-ui); }
+.dropdown-menu { position: absolute; top: 55px; left: 0; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: none; width: 200px; }
+.dropdown-menu.active { display: block; animation: slideIn 0.3s ease; }
+.setting-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; color: #333; font-size: 14px; }
+
+/* Navigation avec SURVOL BLEU */
+.main-header { position: absolute; top: 30px; right: 40px; z-index: 900; }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 1.1rem; }
+.nav-links a:hover { color: var(--esen-blue); transform: scale(1.1); } /* Ton effet bleu conservé */
+
+/* FORMULAIRE TAILLE INSCRIPTION (350px) */
+.content-center { min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 80px 20px; }
+.form-container-full { width: 100%; max-width: 350px; animation: fadeIn 0.8s ease; } /* Largeur ajustée */
+.form-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 25px; text-align: center; text-shadow: 3px 5px 12px var(--shadow-ui); }
+
+/* Champs Style Pill */
+.input-group { margin-bottom: 15px; text-align: left; }
+.input-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.85rem; padding-left: 20px; }
+.input-group input { width: 100%; padding: 12px 20px; border-radius: 50px; border: 2px solid var(--esen-blue); background: var(--input-bg); color: var(--text-color); outline: none; font-size: 0.95rem; }
+
+/* Priorité */
+.priority-section { text-align: center; margin-bottom: 20px; }
+.label-text { font-weight: 700; margin-bottom: 10px; display: block; font-size: 1rem; }
+.priority-options { display: flex; gap: 8px; }
+.prio-btn { flex: 1; cursor: pointer; }
+.prio-btn input { display: none; }
+.prio-btn span { display: block; padding: 10px; border-radius: 50px; border: 2px solid var(--esen-blue); font-size: 0.75rem; font-weight: 600; background: var(--input-bg); }
+.prio-btn input:checked + span { background: var(--esen-blue); color: white; transform: scale(1.05); }
+
+/* Boutons */
+.form-actions { display: flex; gap: 10px; margin-top: 20px; }
+.btn-submit, .btn-cancel { 
+    flex: 1; padding: 14px; border-radius: 50px; border: none; font-weight: 700; 
+    cursor: pointer; text-transform: uppercase; color: white;
+    background: linear-gradient(135deg, var(--esen-blue), #2980b9); 
+    box-shadow: 0 5px 15px var(--shadow-ui); font-size: 0.85rem;
+}
+.btn-submit:hover, .btn-cancel:hover { transform: scale(1.05); }
+
+/* Row pour Date/Durée */
+.row { display: flex; gap: 10px; width: 100%; }
+.row .input-group { flex: 1; }
+
+/* Switch & Errors */
+.switch { position: relative; width: 34px; height: 18px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; border-radius: 34px; }
+.slider:before { content: ""; position: absolute; height: 12px; width: 12px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: 0.4s; }
+input:checked + .slider { background-color: var(--esen-blue); }
+input:checked + .slider:before { transform: translateX(16px); }
+
+.input-error { border-color: #ef4444 !important; }
+.error-msg { color: #ef4444; font-size: 0.7rem; height: 12px; display: block; opacity: 0; padding-left: 15px; }
+.error-msg.visible { opacity: 1; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideIn { from { transform: translateY(-10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

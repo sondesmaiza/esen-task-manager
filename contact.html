@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESEN - Contact & Équipe</title>
+    <link rel="stylesheet" href="style5.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="menu-container">
+        <button class="menu-dots" id="menuBtn">⋮</button>
+        <div class="dropdown-menu" id="dropdown">
+            <div class="setting-item">
+                <span>🎵 Musique</span>
+                <label class="switch">
+                    <input type="checkbox" id="music-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <span>🌙 Mode Sombre</span>
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="inscription.html" target="_blank">Inscription</a></li>
+                <li><a href="ajouter.html">Ajouter</a></li>
+                <li><a href="taches.html">Tâches</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-center">
+        <div class="form-container-full contact-card">
+            <div class="logo-section">
+                <img src="c:\Users\Admin\Desktop\projet programmation web\logo.jpg.jpg" alt="Logo ESEN" class="esen-logo-large">
+                <h1 class="university-name">École Supérieure d'Économie Numérique</h1>
+            </div>
+
+            <div class="info-details">
+                <p>📍 Manouba • Tunisie</p>
+                <p>✉️ contact@esen.tn</p>
+                <p>🎓 Plateforme de gestion des tâches pour étudiants et professeurs</p>
+            </div>
+
+            <hr class="separator">
+
+            <h3 class="team-title">Réalisé par :</h3>
+            <div class="team-list">
+                <div class="member-pill">Sondes Maiza - 2<sup>ème</sup> année BI G2</div>
+                <div class="member-pill">Oussema Boulila - 2<sup>ème</sup> année BI G2</div>
+                <div class="member-pill">Dhia Chamakhi - 2<sup>ème</sup> année BI G2</div>
+            </div>
+        </div>
+    </main>
+
+    <audio id="bg-music" loop>
+        <source src="c:\Users\Admin\Desktop\projet programmation web\music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="app5.js"></script>
+</body>
+</html>

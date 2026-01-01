@@ -1,0 +1,74 @@
+:root {
+    --esen-blue: #4da6e1;
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #e1f0fa 50%, #b3d9f2 100%);
+    --text-color: #1a1a1a;
+    --shadow-ui: rgba(77, 166, 225, 0.4);
+    --input-bg: rgba(255, 255, 255, 0.9);
+}
+
+body.dark {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --text-color: #ffffff;
+    --shadow-ui: rgba(0, 0, 0, 0.7);
+    --input-bg: rgba(30, 41, 59, 0.8);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; transition: 0.3s ease; }
+body { background: var(--bg-gradient); background-attachment: fixed; color: var(--text-color); min-height: 100vh; }
+
+/* MENU KEBAB & DROPDOWN (Identique à la page Ajouter) */
+.menu-container { position: fixed; top: 20px; left: 20px; z-index: 1000; }
+.menu-dots { background: white; border: 2px solid var(--esen-blue); color: var(--esen-blue); width: 45px; height: 45px; border-radius: 12px; font-size: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px var(--shadow-ui); }
+.dropdown-menu { position: absolute; top: 55px; left: 0; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: none; width: 200px; }
+.dropdown-menu.active { display: block; animation: slideIn 0.3s ease; }
+.setting-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; color: #333; font-size: 14px; }
+body.dark .setting-item { color: #ffffff; }
+body.dark .dropdown-menu { background: #1e293b; }
+
+/* Navigation avec survol bleu */
+.main-header { position: absolute; top: 30px; right: 40px; z-index: 900; }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 1.1rem; }
+.nav-links a:hover { color: var(--esen-blue); transform: scale(1.1); }
+
+/* Form Container */
+.content-center { display: flex; justify-content: center; align-items: center; padding: 100px 20px; }
+.form-container-full { width: 100%; max-width: 450px; background: var(--input-bg); padding: 30px; border-radius: 30px; box-shadow: 0 15px 35px var(--shadow-ui); }
+.form-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 25px; text-align: center; text-shadow: 3px 5px 12px var(--shadow-ui); }
+
+/* Liste des tâches */
+.prio-group { margin-bottom: 20px; text-align: left; }
+.prio-title { font-weight: 700; margin-bottom: 10px; padding-left: 10px; border-left: 4px solid var(--esen-blue); }
+.task-item { display: flex; justify-content: space-between; align-items: center; background: white; padding: 10px 18px; border-radius: 50px; margin-bottom: 8px; border: 1.5px solid #eee; }
+body.dark .task-item { background: #1e293b; border-color: #334155; }
+
+/* Boutons d'actions */
+.action-btns { display: flex; gap: 4px; }
+.btn-act { width: 32px; height: 32px; border: none; border-radius: 8px; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+.btn-edit { background: #34495e; }
+.btn-del { background: #e67e22; }
+.btn-wait { background: #f39c12; }
+.btn-check { background: #4da6e1; }
+
+.task-waiting { border: 2px solid #e67e22 !important; }
+.task-done { text-decoration: line-through; opacity: 0.5; }
+
+/* Boutons Bas de page (Identique à la page Ajouter) */
+.form-actions { display: flex; gap: 10px; margin-top: 25px; }
+.btn-submit, .btn-cancel { 
+    flex: 1; padding: 14px; border-radius: 50px; border: none; font-weight: 700; 
+    cursor: pointer; text-transform: uppercase; color: white;
+    background: linear-gradient(135deg, var(--esen-blue), #2980b9); 
+    box-shadow: 0 5px 15px var(--shadow-ui); font-size: 0.85rem;
+}
+.btn-submit:hover, .btn-cancel:hover { transform: scale(1.05); }
+
+/* Switches */
+.switch { position: relative; width: 34px; height: 18px; display: inline-block; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; border-radius: 34px; }
+.slider:before { content: ""; position: absolute; height: 12px; width: 12px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: 0.4s; }
+input:checked + .slider { background-color: var(--esen-blue); }
+input:checked + .slider:before { transform: translateX(16px); }
+
+@keyframes slideIn { from { transform: translateY(-10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
