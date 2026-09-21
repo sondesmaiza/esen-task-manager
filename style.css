@@ -24,7 +24,7 @@ body {
     min-height: 100vh;
 }
 
-/* Menu Kebab */
+/* Menu notifaction */
 .menu-container { position: fixed; top: 20px; left: 20px; z-index: 1000; }
 .menu-dots {
     background: white; border: 2px solid var(--esen-blue); color: var(--esen-blue);
